@@ -1,0 +1,192 @@
+; [colors]
+; background = #222
+; background-alt = #444
+; foreground = #dfdfdf
+; foreground-alt = #555
+; primary = #FFFFFF
+; secondary = #e60053
+; alert = #bd2c40
+
+[colors]
+background     = ${xrdb:background:#222}
+background-alt = ${xrdb:color8:#222}
+foreground     = ${xrdb:foreground:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary        = ${xrdb:color3:#222}
+secondary      = ${xrdb:color4:#222}
+alert          = ${xrdb:color1:#222}
+
+[bar/bar]
+; ...
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+[bar/bar1]
+  width = 100%
+  height = 25
+  radius = 0
+  fixed-center = true
+
+  enable-ipc = true
+
+  background = ${colors.background}
+  foreground = ${colors.foreground}
+
+  line-size = 2
+  line-color = #f00
+
+  border-size = 0
+  border-color = #00000000
+
+  padding-left = 0
+  padding-right = 3
+
+  module-margin-left = 3
+  module-margin-right = 0
+
+  font-0 = Ubuntu:pixelsize=11;1
+  font-1 = MaterialIcons:size=12;1
+  font-2 = FontAwesome:size=12:antialias=true;3
+  font-3 = "Font Awesome 5 Free:style=Regular;size=12:antialias=true;3"
+  modules-left = i3
+  modules-center = spotify
+  modules-right = volume cpu filesystem memory eth date powermenu
+  ; tray-position = right
+  ; tray-padding = 2
+
+[module/i3]
+  type = internal/i3
+  format = <label-state> <label-mode>
+  index-sort = true
+  wrapping-scroll = false
+  label-mode-padding = 2
+  label-mode-foreground = #000
+  label-mode-background = ${colors.primary}
+  label-focused = %icon% %index% 
+  label-focused-background = ${colors.background-alt}
+  label-focused-underline = ${colors.primary}
+  label-focused-padding = 2
+  label-unfocused = %icon% %index%
+  label-unfocused-padding = 2
+  label-visible = %icon% %index%
+  label-visible-background = ${self.label-focused-background}
+  label-visible-underline = ${self.label-focused-background}
+  label-visible-padding = ${self.label-focused-padding}
+  label-urgent = %icon% %index%
+  label-urgent-background = ${colors.alert}
+  label-urgent-padding = 2
+  ws-icon-0 = ffox;
+  ws-icon-1 = spot;
+  ws-icon-2 = disc;
+  ws-icon-3 = steam;
+  ws-icon-4 = game;
+  ; ws-icon-default = 
+
+[module/cpu]
+  type = internal/cpu
+
+  interval = 1
+  format = <label> 
+  label =  %percentage%%
+
+[module/memory]
+  type = internal/memory
+
+  interval = 3
+  format = <label> 
+  label =  %gb_used%/%gb_total%
+
+[module/filesystem]
+  type = internal/fs
+
+  mount-0 = /
+
+  interval = 10
+  format-mounted = <label-mounted>
+  label-mounted =  %free% free
+
+[module/spotify]
+  type = custom/script
+  hook-0 = echo  `playerctl metadata xesam:artist` - `playerctl metadata xesam:title`
+  exec = echo  `playerctl metadata xesam:artist` - `playerctl metadata xesam:title`
+  exec-if = pgrep -x "spotify"
+  initial = 1
+  interval = 1
+  format-underline = #55ba55
+
+[module/eth]
+  type = internal/network
+  interface = enp9s0
+  interval = 3.0
+  format-connected = <label-connected>
+  label-connected = %linkspeed%
+  format-connected-prefix = " "
+  format-connected-prefix-foreground = #55aa55
+
+  format-disconnected = <label-disconnected>
+  label-disconnected = discon
+  label-disconnected-foreground = ${colors.secondary}
+  format-disconnected-prefix = " "
+  format-disconnected-prefix-foreground = #aa5555
+
+[module/date]
+  type = internal/date
+  ; set to 1 if you change date to %p
+  interval = 30
+
+  format =  <label>
+  format-padding = 2
+  format-foreground = ${colors.foreground}
+  format-background = ${colors.background}
+
+  label = %date%
+  label-padding = 1
+  label-foreground = ${colors.foreground}
+
+  date = %I:%M %p
+  date-alt = %d %b %Y
+
+[module/volume]
+	type = internal/volume
+	format-volume = <ramp-volume> <label-volume>
+	label-muted =  mute
+	label-muted-foreground = ${colors.alert}
+	label-muted-font = 4
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
+	ramp-volume-3 = 
+
+[module/powermenu]
+type = custom/menu
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-open = ""
+label-open-font = 4
+label-close = " cancel"
+label-close-foreground = ${colors.alert}
+label-separator = " | "
+label-separator-foreground = ${colors.secondary}
+
+; shutdown
+menu-0-0 = " shutdown"
+menu-0-0-exec = systemctl poweroff
+menu-0-0-foreground = ${colors.foreground}
+; reboot
+menu-0-1 = " reboot"
+menu-0-1-exec = systemctl reboot
+menu-0-1-foreground = ${colors.foreground}
+; logout
+menu-0-2 = " logout"
+menu-0-2-exec = i3-msg exit
+menu-0-2-foreground = ${colors.foreground}
+
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+  margin-top = 5
+  margin-bottom = 5
