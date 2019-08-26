@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/liam/.oh-my-zsh"
+export ZSH="/Users/liam/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 
@@ -31,6 +31,7 @@ ZSH_THEME="agnoster"
 
 plugins=(
   git
+  zsh-syntax-highlighting
   zsh-autosuggestions
   )
 
@@ -72,14 +73,14 @@ if [[ $+commands[nvim] ]];
 fi
 
 # alias ls with exa
-# if [[ $+command[exa] ]];
-  # then alias ls='exa'
-# fi
+if [[ $+command[exa] ]];
+  then alias ls='exa'
+fi
 
 # alias ls with exa
-# if [[ $+command[bat] ]];
-#   then alias cat='bat'
-# fi
+if [[ $+command[bat] ]];
+  then alias cat='bat'
+fi
 
 # ----------------------------------------------------------------------------------------
 # FUNCTIONS

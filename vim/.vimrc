@@ -3,6 +3,8 @@ call plug#begin()
 
 " Language support
 Plug 'rust-lang/rust.vim'              " Rustlang langauge support
+Plug 'ElmCast/elm-vim'                 " Elm language support
+Plug 'purescript-contrib/purescript-vim' " Purescript language support
 Plug 'Shougo/echodoc.vim'              " Show function signature + inline doc
 
 " Plug 'guns/vim-clojure-static'         " Clojure syntax highlighting
@@ -13,7 +15,7 @@ Plug 'l04m33/vlime'                    " Common lisp dev environment
 Plug 'neovimhaskell/haskell-vim',      " Haskell syntax/tab support
 Plug 'pbrisbin/vim-syntax-shakespeare' " Yesod file syntax highlighting
 Plug 'itchyny/vim-haskell-indent'      " Haskell auto identation
-Plug 'parsonsmatt/intero-neovim',      " Haskell type info + repl
+" Plug 'parsonsmatt/intero-neovim',      " Haskell type info + repl
 " Plug 'ndmitchell/ghcid'              " Haskell integration
 "   \{ 'rtp': 'plugins/nvim' }
 
@@ -23,6 +25,7 @@ Plug 'tomtom/tcomment_vim'             " Commenting operator
                                        " gcgc to uncomment lines
 Plug 'junegunn/vim-easy-align'         " Allows easy aligning of data
 Plug 'tpope/vim-surround'              " Deal with parantheses, quotes, etc
+Plug 'tpope/vim-abolish'
 Plug 'machakann/vim-swap'              " Swap delimited items
 
 " Linting
@@ -288,35 +291,35 @@ let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Use stack ghci as default repl
-let g:intero_backend = {
-  \ 'command': 'stack ghci',
-  \ 'cwd': expand('%:p:h'),
-  \ }
-
-" Automatically reload on save
-au BufWritePost *.hs InteroReload
-
-" Show info about expression or type under the cursor
-au FileType haskell nnoremap <silent> <leader>i :InteroInfo<CR>
-
-" Open/Close the Intero terminal window
-au FileType haskell nnoremap <silent> <leader>nn :InteroOpen<CR>
-au FileType haskell nnoremap <silent> <leader>nh :InteroHide<CR>
-
-" Reload the current file into REPL
-au FileType haskell nnoremap <silent> <leader>nf :InteroLoadCurrentFile<CR> :InteroOpen<CR>
-
-" Start/Stop Intero
-au FileType haskell nnoremap <silent> <leader>ns :InteroStart<CR>
-au FileType haskell nnoremap <silent> <leader>nk :InteroKill<CR>
-
-" Reboot Intero, for when dependencies are added
-au FileType haskell nnoremap <silent> <leader>nr :InteroKill<CR> :InteroOpen<CR>
-
-" Managing targets
-" Prompts you to enter targets (no silent):
-au FileType haskell nnoremap <leader>nt :InteroSetTargets<CR>
-
+" let g:intero_backend = {
+"   \ 'command': 'stack ghci',
+"   \ 'cwd': expand('%:p:h'),
+"   \ }
+"
+" " Automatically reload on save
+" au BufWritePost *.hs InteroReload
+"
+" " Show info about expression or type under the cursor
+" au FileType haskell nnoremap <silent> <leader>i :InteroInfo<CR>
+"
+" " Open/Close the Intero terminal window
+" au FileType haskell nnoremap <silent> <leader>nn :InteroOpen<CR>
+" au FileType haskell nnoremap <silent> <leader>nh :InteroHide<CR>
+"
+" " Reload the current file into REPL
+" au FileType haskell nnoremap <silent> <leader>nf :InteroLoadCurrentFile<CR> :InteroOpen<CR>
+"
+" " Start/Stop Intero
+" au FileType haskell nnoremap <silent> <leader>ns :InteroStart<CR>
+" au FileType haskell nnoremap <silent> <leader>nk :InteroKill<CR>
+"
+" " Reboot Intero, for when dependencies are added
+" au FileType haskell nnoremap <silent> <leader>nr :InteroKill<CR> :InteroOpen<CR>
+"
+" " Managing targets
+" " Prompts you to enter targets (no silent):
+" au FileType haskell nnoremap <leader>nt :InteroSetTargets<CR>
+"
 " -----------------------------------------------------------------------------------------------
 " Python
 
