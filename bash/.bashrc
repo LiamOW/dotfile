@@ -13,9 +13,6 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-# store dotfiles on github
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # set fzf to use ripgrep by default
 
 # --files: List files that would be searched but do not search
