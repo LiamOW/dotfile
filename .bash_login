@@ -1,3 +1,0 @@
-if [ command -qv `wal -R` ]
-  then wal -R
-fi 
