@@ -1,0 +1,34 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/liam/programming/" . "commonlisp/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/liam/.emacs.d/"
+ "/Users/liam/"
+ "/Users/liam/programming/commonlisp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "config.org"
+ ".emacs"
+ "chapter-3.lisp"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/liam/.emacs.d/" (23850 2239 265638 408000) "elpa/" "auto-save-list/" "transient/" "config.org" "../" "./")
+
+ ("/Users/liam/" (23850 2286 62593 506000) "iphone-logs/" "git/" ".viminfo" ".bash_history" ".gitconfig" "school/" ".cache/" ".python_history" "Downloads/" ".oh-my-zsh/" ".Xauthority" ".binwalk/" ".emacs.bak" ".gem/" ".bash_profile" ".m2/" ".spacemacs" ".fzf/" ".mono/" ".git/" ".ocamlinit" "comps/" ".tmux/" "pixelart/" "Documents/" ".exercism.json" ".parsec/" ".BurpSuite/" ".vimdid/" ".Trash/" ".emacs~" ".ghci" ".ghc/" "Applications/" ".emacs" ".vimrc" "Movies/" ".ssh/" ".rustup/" ".sh_history" "programming/" ".eaglerc" ".gitignore" ".wireshark/" ".wireshark-etc/" ".fzf.bash" "Public/" ".mplayer/" ".fzf.zsh" ".lein/" "peda/" ".sqlite_history" "cmu/" ".bash_sessions/" "Sites/" ".cups/" ".cargo/" ".quicklisp/" ".emacs.d/" ".gitmodules" "iCloud Drive (Archive)/" ".gdbinit" ".oracle_jre_usage/" "books/" ".lesshst" "Library/" "Desktop/" ".opam/" ".zsh_history" ".vimrc.bak" ".utop-history" ".cfg/" ".shell.pre-oh-my-zsh" ".fontconfig/" ".multirust/" "install.sh" "Pictures/" ".psql_history" ".local/" ".slime_paste" ".zshrc" ".secret.gpg" ".bashrc" ".jssc/" ".subversion/" ".cabal/" "emacs-learning/" ".z" ".zsh_history.test" ".wget-hsts" ".CFUserTextEncoding" ".tmux.conf" ".gnupg/" "memes/" ".DS_Store" ".vim/" "writings/" ".docker/" ".zcompdump-lowbookpro-5.3" ".kodi/" "Music/" "personal/" ".config/" "kila/" ".stack/" "../" "./")
+
+ ("/Users/liam/programming/commonlisp/" (23844 36201 821551 462000) "chapter-3.lisp" "hello.lisp" "book.pdf" "../" "./")
+
+ ("/Users/liam/programming/" (23843 57737 145802 988000) "graphics/" "commonlisp/" "haskell/" "rust/" "projects/" "web/" "clojure/" "python/" ".DS_Store" "lisp/" "scheme/" "ocaml/" "cryptopal-chals/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
