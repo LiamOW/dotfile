@@ -156,9 +156,18 @@ bindsym $mod+Shift+g exec steam; exec discord; exec spotify
 # APPEARANCE #
 #------------#
 
+
+# gaps
+gaps inner 10
+gaps outer 10
+smart_gaps on 
+
+# no border when touching screen edge
+hide_edge_borders smart
+
 # window border
-for_window [class="^.*"] border pixel 0
-#for_window [class=".*"] title_format "<span font='Hack 10'> > %title</span>"
+for_window [class="^.*"] border pixel 6 
+# for_window [class=".*"] title_format "<span font='Hack 10'> > %title</span>"
 
 set_from_resource $fg i3wm.foreground #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
@@ -176,7 +185,7 @@ client.background 	    $bg    $bg     $fg  $bg       $bg
 
 exec_always --no-startup-id feh --bg-fill ~/wallpapers/no-mans-sky-landscape.jpg
 
-exec --no-startup-id compton -Cb --config /home/liam/.config/compton/compton.conf --backend xrender
+exec --no-startup-id compton -Cb --config /home/liam/.config/compton/compton.conf 
 # exec --no-startup-id sudo powertop --auto-tune
 # exec --no-startup-id nm-applet
 # exec --no-startup-id udiskie

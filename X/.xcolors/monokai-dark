@@ -1,6 +1,7 @@
 ! special
 #define FOREGROUND #f8f8f2
-#define BACKGROUND #272822
+#define BACKGROUND #d4272822
+#define TBACKGROUND #272822
 #define CURSORCOLOR #f8f8f2
 ! black
 #define COLOR0 #272822
