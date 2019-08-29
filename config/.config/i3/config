@@ -64,12 +64,12 @@ bindsym $mod+e layout toggle split
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:ffox"
-set $ws2 "2:spot"
-set $ws3 "3:disc"
-set $ws4 "4:steam"
-set $ws5 "5:game"
-set $ws6 "6"
+set $ws1 "1: ffox"
+set $ws2 "2: spot"
+set $ws3 "3: disc"
+set $ws4 "4: steam"
+set $ws5 "5: game"
+set $ws6 "6: cons"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -140,8 +140,9 @@ bindsym $mod+Shift+r restart
 
 # print screen
 # bindsym Print exec --no-startup-id scrot
-bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym Control+Print exec gnome-screenshot -i
+bindsym Print exec maim ~/Pictures/$(date +%s).png
+bindsym --release Control+Print exec maim -s | xclip -selection clipboard -t image/png
+# bindsym Control+Print exec gnome-screenshot -i
 
 # exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -158,15 +159,15 @@ bindsym $mod+Shift+g exec steam; exec discord; exec spotify
 
 
 # gaps
-gaps inner 10
-gaps outer 10
+gaps inner 4
+gaps outer 4
 smart_gaps on 
 
 # no border when touching screen edge
 hide_edge_borders smart
 
 # window border
-for_window [class="^.*"] border pixel 6 
+for_window [class="^.*"] border pixel 4
 # for_window [class=".*"] title_format "<span font='Hack 10'> > %title</span>"
 
 set_from_resource $fg i3wm.foreground #f0f0f0

@@ -7,10 +7,12 @@ Plug 'ElmCast/elm-vim'                 " Elm language support
 Plug 'purescript-contrib/purescript-vim' " Purescript language support
 Plug 'Shougo/echodoc.vim'              " Show function signature + inline doc
 
-" Plug 'guns/vim-clojure-static'         " Clojure syntax highlighting
-" Plug 'tpope/vim-fireplace'             " Evaluate Clojure code in buffer
-Plug 'jpalardy/vim-slime'              " Send Clojure code to repl with C-c C-c
-Plug 'l04m33/vlime'                    " Common lisp dev environment
+Plug 'guns/vim-sexp'                   " Clojure syntax highlighting
+Plug 'tpope/vim-sexp-mappings-for-regular-people' " Clojure syntax highlighting
+Plug 'tpope/vim-salve'                 " Clojure syntax highlighting
+Plug 'tpope/vim-fireplace'             " Evaluate Clojure code in buffer
+" Plug 'jpalardy/vim-slime'              " Send Clojure code to repl with C-c C-c
+" Plug 'l04m33/vlime'                    " Common lisp dev environment
 
 Plug 'neovimhaskell/haskell-vim',      " Haskell syntax/tab support
 Plug 'pbrisbin/vim-syntax-shakespeare' " Yesod file syntax highlighting
@@ -43,13 +45,14 @@ Plug 'junegunn/fzf',
 Plug 'junegunn/fzf.vim'                " FZF fuzzy finder
 
 " Writing
-Plug 'junegunn/goyo.vim'          " Distraction free writing
-Plug 'reedes/vim-pencil'          " Make Vim a good writing environment
-Plug 'plasticboy/vim-markdown'    " Markdown enhancements
+Plug 'junegunn/goyo.vim'               " Distraction free writing
+Plug 'reedes/vim-pencil'               " Make Vim a good writing environment
+Plug 'plasticboy/vim-markdown'         " Markdown enhancements
 
 " Convenience
-"Plug 'godlygeek/tabular'             " Align pieces of code
-Plug 'christoomey/vim-tmux-navigator' " easy vim-tmux naviatgation
+" Plug 'godlygeek/tabular'               " Align pieces of code
+Plug 'christoomey/vim-tmux-navigator'  " easy vim-tmux naviatgation
+Plug 'luochen1990/rainbow'             " Rainbow parantheses
 
 call plug#end()
 
@@ -187,9 +190,12 @@ let g:rooter_patterns = ['.git/', 'Cargo.toml', 'Makefile']
 
 " Slime configuration
 " Use tmux
-let g:slime_target = "tmux"
+" let g:slime_target = "tmux"
 
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+" let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+
+" Turn on rainbow parantheses
+let g:rainbow_active = 1
 
 " -----------------------------------------------------------------------------------------------
 " Commands

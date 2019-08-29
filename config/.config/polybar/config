@@ -45,9 +45,8 @@ foreground = ${colors.foreground}
   module-margin-right = 0
 
   font-0 = Ubuntu:pixelsize=11;1
-  font-1 = MaterialIcons:size=12;1
-  font-2 = FontAwesome:size=12:antialias=true;3
-  font-3 = "Font Awesome 5 Free:style=Regular;size=12:antialias=true;3"
+  font-1 = FontAwesome:size=12:antialias=true;3
+  font-2 = MaterialIcons:size=12;1
   modules-left = i3
   modules-center = spotify
   modules-right = volume cpu filesystem memory eth date powermenu
@@ -59,28 +58,37 @@ foreground = ${colors.foreground}
   format = <label-state> <label-mode>
   index-sort = true
   wrapping-scroll = false
+
+  fuzzy-match = true
+
+  ; ws-icon-1 = 1: ffox;
+  ; ws-icon-2 = 2: spot;
+  ; ws-icon-3 = 3: disc;
+  ; ws-icon-4 = 4: steam;
+  ; ws-icon-5 = 5: game;
+  ; ws-icon-6 = 6: cons;
+  ; ws-icon-default = 
+
   label-mode-padding = 2
-  label-mode-foreground = #000
+  label-mode-foreground = #{colors.foreground}
   label-mode-background = ${colors.primary}
-  label-focused = %icon% %index% 
+
+  label-focused = %index%
   label-focused-background = ${colors.background-alt}
   label-focused-underline = ${colors.primary}
   label-focused-padding = 2
-  label-unfocused = %icon% %index%
+
+  label-unfocused = %index%
   label-unfocused-padding = 2
-  label-visible = %icon% %index%
+
+  label-visible = %index%
   label-visible-background = ${self.label-focused-background}
   label-visible-underline = ${self.label-focused-background}
   label-visible-padding = ${self.label-focused-padding}
-  label-urgent = %icon% %index%
+
+  label-urgent = %index%
   label-urgent-background = ${colors.alert}
   label-urgent-padding = 2
-  ws-icon-0 = ffox;
-  ws-icon-1 = spot;
-  ws-icon-2 = disc;
-  ws-icon-3 = steam;
-  ws-icon-4 = game;
-  ; ws-icon-default = 
 
 [module/cpu]
   type = internal/cpu
