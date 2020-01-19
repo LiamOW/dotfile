@@ -36,6 +36,7 @@ Plug 'maximbaz/lightline-ale'          " Ale indicator in lightline bar
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'           " Cool colored bar at bottom of vim
+Plug 'morhetz/gruvbox'                 " Gruvbox
 
 " Fuzzy finding
 Plug 'airblade/vim-rooter'             " Changes CWD to project root
