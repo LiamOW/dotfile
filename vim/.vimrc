@@ -14,9 +14,9 @@ Plug 'tpope/vim-fireplace'             " Evaluate Clojure code in buffer
 " Plug 'jpalardy/vim-slime'              " Send Clojure code to repl with C-c C-c
 " Plug 'l04m33/vlime'                    " Common lisp dev environment
 
-Plug 'neovimhaskell/haskell-vim',      " Haskell syntax/tab support
-Plug 'pbrisbin/vim-syntax-shakespeare' " Yesod file syntax highlighting
-Plug 'itchyny/vim-haskell-indent'      " Haskell auto identation
+" Plug 'neovimhaskell/haskell-vim',      " Haskell syntax/tab support
+" Plug 'pbrisbin/vim-syntax-shakespeare' " Yesod file syntax highlighting
+" Plug 'itchyny/vim-haskell-indent'      " Haskell auto identation
 " Plug 'parsonsmatt/intero-neovim',      " Haskell type info + repl
 " Plug 'ndmitchell/ghcid'              " Haskell integration
 "   \{ 'rtp': 'plugins/nvim' }
@@ -159,7 +159,6 @@ let g:ale_lint_on_save = 1
 let g:ale_list_window_size = 4
 
 let g:ale_linters = {
-  \ 'haskell': ['hlint', 'stack-build'],
   \ 'python': ['flake8'],
   \ }
 " let g:ale_haskell_ghc_options = '-fno-code -v0 -isrc'
@@ -196,6 +195,9 @@ let g:rooter_patterns = ['.git/', 'Cargo.toml', 'Makefile']
 
 " Turn on rainbow parantheses
 let g:rainbow_active = 1
+
+" Disable paranthese balancing
+let g:sexp_enable_insert_mode_mappings = 0
 
 " -----------------------------------------------------------------------------------------------
 " Commands
@@ -288,13 +290,13 @@ autocmd FileType rust setlocal commentstring=//\ %s
 " Haskell
 
 " Haskell-vim syntax highlighting
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+" let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+" let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+" let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+" let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+" let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+" let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Use stack ghci as default repl
 " let g:intero_backend = {
