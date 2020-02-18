@@ -34,3 +34,12 @@ editsecret
 exit
 editsecret
 exit
+editsecret
+exit
+showsecret
+exit
+showsecret
+exit
+showsecrets
+showsecret
+exit

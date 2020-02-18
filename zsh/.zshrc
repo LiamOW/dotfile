@@ -46,6 +46,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/bin"
+export PATH=$PATH:$HOME/.vim/plugged/vim-iced/bin
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -88,3 +89,5 @@ fi
 function mkd() {
   mkdir $1 && cd $1
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

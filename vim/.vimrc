@@ -2,24 +2,15 @@
 call plug#begin()
 
 " Language support
-Plug 'rust-lang/rust.vim'              " Rustlang langauge support
-Plug 'ElmCast/elm-vim'                 " Elm language support
-Plug 'purescript-contrib/purescript-vim' " Purescript language support
-Plug 'Shougo/echodoc.vim'              " Show function signature + inline doc
+Plug 'rust-lang/rust.vim', {'for': 'rust'}   " Rustlang langauge support
+Plug 'ElmCast/elm-vim', {'for': 'elm'}       " Elm language support
+Plug 'Shougo/echodoc.vim'                    " Show function signature + inline doc
 
-Plug 'guns/vim-sexp'                   " Clojure syntax highlighting
-Plug 'tpope/vim-sexp-mappings-for-regular-people' " Clojure syntax highlighting
-Plug 'tpope/vim-salve'                 " Clojure syntax highlighting
-Plug 'tpope/vim-fireplace'             " Evaluate Clojure code in buffer
-" Plug 'jpalardy/vim-slime'              " Send Clojure code to repl with C-c C-c
-" Plug 'l04m33/vlime'                    " Common lisp dev environment
-
-" Plug 'neovimhaskell/haskell-vim',      " Haskell syntax/tab support
-" Plug 'pbrisbin/vim-syntax-shakespeare' " Yesod file syntax highlighting
-" Plug 'itchyny/vim-haskell-indent'      " Haskell auto identation
-" Plug 'parsonsmatt/intero-neovim',      " Haskell type info + repl
-" Plug 'ndmitchell/ghcid'              " Haskell integration
-"   \{ 'rtp': 'plugins/nvim' }
+Plug 'guns/vim-sexp'                              " Parenthese manipulation utilities
+Plug 'tpope/vim-sexp-mappings-for-regular-people' " Parenthese manipulation utilities
+Plug 'guns/vim-clojure-static'                    " Clojure syntax hl + indentation
+Plug 'tpope/vim-fireplace'                        " Clojure Repl support
+Plug 'tpope/vim-salve'                            " Assorted clojure support
 
 " Commenting extension
 Plug 'tomtom/tcomment_vim'             " Commenting operator
@@ -39,7 +30,7 @@ Plug 'itchyny/lightline.vim'           " Cool colored bar at bottom of vim
 Plug 'morhetz/gruvbox'                 " Gruvbox
 
 " Fuzzy finding
-Plug 'airblade/vim-rooter'             " Changes CWD to project root
+" Plug 'airblade/vim-rooter'             " Changes CWD to project root
 Plug 'junegunn/fzf', 
   \{ 'dir': '~/.fzf', 
    \ 'do': './install --all' }
@@ -69,11 +60,13 @@ set wildmode=longest,list       " Get bash-like autocompletions
 " set cc=80                     " set an 80-column border to enforce good coding style
 
 filetype plugin on              " Enable filetype-specific plugins
+" Set pwd to location of file on buffer enter
+autocmd BufEnter * silent! lcd %:p:h
   
 " Indents
 " Turn off annoying filetype autoindent length
-filetype indent off              " Disable filetype-specific indentation
-filetype plugin indent off       " Enable plugin-based autoidentation
+filetype indent off             " Disable filetype-specific indentation
+filetype plugin indent on       " Enable plugin-based autoidentation
 
 set tabstop=2                   " Set tab-stop to 2 spaces
 set shiftwidth=2                " Width for autoindents
@@ -161,14 +154,8 @@ let g:ale_list_window_size = 4
 
 let g:ale_linters = {
   \ 'python': ['flake8'],
+  \ 'clojure': ['clj-kondo', 'joker']
   \ }
-" let g:ale_haskell_ghc_options = '-fno-code -v0 -isrc'
-
-" Vim Shakespeare config
-" Allow one-liner QQs even if they have invalid nesting
-" let g:hamlet_prevent_invalid_nesting = 0
-" Don't highlight trailing spaces. It's annoying.
-let g:hamlet_highlight_trailing_space = 0
 
 " Vim easy align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -183,22 +170,19 @@ let g:easy_align_delimiters['>'] = { 'pattern': '->', 'ignore_groups': ['String'
 
 " Vim rooter 
 " Default to current dir for nonproject files
-let g:rooter_change_directory_for_non_project_files = 'current'
+" let g:rooter_change_directory_for_non_project_files = ''
 
 " Identify these files as project roots
-let g:rooter_patterns = ['.git/', 'Cargo.toml', 'Makefile']
-
-" Slime configuration
-" Use tmux
-" let g:slime_target = "tmux"
-
-" let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+" let g:rooter_patterns = ['.git/', 'Cargo.toml', 'Makefile', 'project.clj', '.gitignore']
 
 " Turn on rainbow parantheses
 let g:rainbow_active = 1
 
 " Disable paranthese balancing
 let g:sexp_enable_insert_mode_mappings = 0
+
+" conjure default keybindings
+let g:conjure_default_mappings = v:true
 
 " -----------------------------------------------------------------------------------------------
 " Commands
@@ -260,7 +244,7 @@ nnoremap <silent> <C-[> <Plug>(ale_go_to_definition)
 nnoremap <silent> <leader>l :call AleErrorListToggle()<cr>
 
 " Bind :term and open in a new window in the CWD
-nnoremap <silent> <leader>e :call OpenTerm()<cr>
+nnoremap <silent> <leader>t :call OpenTerm()<cr>
 " Go to the terminal window in insert mode when a new one is created
 autocmd BufWinEnter,WinEnter term://* startinsert
 
