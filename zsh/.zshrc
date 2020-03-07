@@ -46,7 +46,8 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/bin"
-export PATH=$PATH:$HOME/.vim/plugged/vim-iced/bin
+# export PATH=$PATH:$HOME/.vim/plugged/vim-iced/bin
+export PATH=$HOME/.bin:$PATH # personal binaries
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -70,7 +71,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # use neovim if installed, else use vim
 if [[ $+commands[nvim] ]];
-  then alias vim='nvim';
+  then 
+    alias vim='nvim';
+    alias vi='nvim';
 fi
 
 # alias ls with exa
@@ -91,3 +94,6 @@ function mkd() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# opam configuration
+test -r /Users/liam/.opam/opam-init/init.zsh && . /Users/liam/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
