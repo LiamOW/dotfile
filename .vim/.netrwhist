@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/liam/projects/liam_site/content/resume'
+let g:netrw_dirhist_9='/home/liam/projects/liam_site/content/projects'
+let g:netrw_dirhist_8='/var/tmp/mkinitramfs_ZUIJve/conf/conf.d'
+let g:netrw_dirhist_7='/home/liam/learning/osdev/os01/07/bootloader'
+let g:netrw_dirhist_6='/home/liam/programming/osdev/redox/kernel/src/arch/x86_64/interrupt'
+let g:netrw_dirhist_5='/home/liam/college/0413-math/week10-hw'
+let g:netrw_dirhist_4='/home/liam/programming/rust/projects/dice_roller/templates'
+let g:netrw_dirhist_3='/home/liam/projects/liam_site/sass'
+let g:netrw_dirhist_2='/home/liam/programming/racket/liamsite/dist'
+let g:netrw_dirhist_1='/home/liam/college/0001-cmpinf'

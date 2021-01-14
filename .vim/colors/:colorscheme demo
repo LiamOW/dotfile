@@ -1,0 +1,33 @@
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
+let g:colors_name = "Demo"
+
+let s:red = 9
+let s:white = 15
+let s:black = 0
+let s:blue = 18
+let s:orange = 166
+let s:darkorange = 94
+let s:green = 34
+let s:darkgreen = 28
+let s:yellow = 11
+
+function! HL(group,ctermfg,ctermbg,cterm)
+  let histring  = 'highlight ' . a:group   . ' '
+  let histring .= 'ctermbg='   . a:ctermbg . ' '
+  let histring .= 'ctermfg='   . a:ctermfg . ' '
+  let histring .= 'cterm='     . a:cterm   . ' '
+
+  execute histring
+endfunction
+
+set background=dark
+
+call HL("Normal",s:white,s:black,"NONE")
+call HL("Constant",s:green,s:black,"NONE")
+call HL("Statement",s:red,s:black,"NONE")
+
+" C specific
+call HL("cStructure",s:orange,s:black,"NONE")
